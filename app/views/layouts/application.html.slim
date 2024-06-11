@@ -1,0 +1,24 @@
+doctype html
+html
+  head
+    title "Owls' Pizza"
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', type: 'module'
+  body
+    .container.mb-2.px-0.d-flex.flex-wrap.align-items-center.py-2.border-bottom
+      .navbar.navbar-expand-md.navbar-light.me-auto
+        = link_to t('navbar.home'), root_path, { class: 'nav-link link-dark' }
+      .nav.nav-pills
+
+    - flash.each do
+      = render 'layouts/flash'
+
+    = yield
+
+    footer.container.d-flex.flex-wrap.justify-content-between.align-items-center.py-3.my-4.border-top
+      p.col-md-4.mb-0.text-body-secondary
+        = "© #{Time.zone.today.year} Owls' Catcher"
