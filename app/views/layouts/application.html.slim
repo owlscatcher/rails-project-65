@@ -15,6 +15,9 @@ html
       .nav.nav-pills
         = button_to auth_request_path('github'), { class: 'nav-link link-dark' }, data: { turbo: false } do
           i.bi.bi-github
+        - if signed_in?
+          = link_to auth_logout_path, { class: 'nav-link link-dark', data: { turbo_method: :delete } } do
+            i.bi.bi-door-open
 
     - flash.each do
       = render 'layouts/flash'

@@ -12,12 +12,12 @@ module Web
       user.update(name:)
 
       sign_in user
-      redirect_to root_path, notice: '.signed_in' # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to root_path, notice: t('.signed_in')
     end
 
-    def login
+    def logout
       sign_out
-      redirect_to root_path, notice: '.signed_out' # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to root_path, notice: t('.signed_out')
     end
   end
 end
