@@ -13,6 +13,8 @@ html
       .navbar.navbar-expand-md.navbar-light.me-auto
         = link_to t('navbar.home'), root_path, { class: 'nav-link link-dark' }
       .nav.nav-pills
+        = button_to auth_request_path('github'), { class: 'nav-link link-dark' }, data: { turbo: false } do
+          i.bi.bi-github
 
     - flash.each do
       = render 'layouts/flash'
