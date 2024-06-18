@@ -46,7 +46,10 @@ group :production do
   gem 'pg'
 end
 
+gem 'active_storage_validations'
 gem 'faker', '~> 3.3', '>= 3.3.1'
+gem 'file_validators'
+gem 'image_processing'
 gem 'minitest-power_assert', '~> 0.3.1'
 gem 'omniauth'
 gem 'omniauth-github'
@@ -56,6 +59,7 @@ gem 'rubocop-performance', '~> 1.21'
 gem 'rubocop-rails', '~> 2.24', '>= 2.24.1'
 gem 'sentry-rails'
 gem 'sentry-ruby'
+gem 'simple_form'
 gem 'slim', '~> 5.2', '>= 5.2.1'
 gem 'slim_lint', '~> 0.27.0'
 gem 'slim-rails', '~> 3.6', '>= 3.6.3'

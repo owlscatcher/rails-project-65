@@ -1,0 +1,7 @@
+.container.px-0
+  .row.mt-4
+    .col
+      h4 = @bulletin.title
+      p = @bulletin.description
+    .col
+      = image_tag(@bulletin.image, class: 'img-fluid')

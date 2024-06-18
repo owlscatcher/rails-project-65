@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
+Rails.logger.debug 'Seeding started'
+
+# NOTE: how to start a named seed
+#   'SEED_NAME=categories rails db:seed'
+seed_file = ENV.fetch('SEED_NAME', nil)
+
+if seed_file.present?
+  require_relative "seeds/#{seed_file}"
+else
+  require_relative 'seeds/categories'
+end
