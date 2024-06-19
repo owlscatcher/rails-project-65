@@ -1,7 +1,10 @@
 .container.px-0
   .row.mt-4
     .col
+      section#bulletin-info
       h4 = @bulletin.title
       p = @bulletin.description
+
     .col
+      section#bulletin-cover
       = image_tag(@bulletin.image, class: 'img-fluid')

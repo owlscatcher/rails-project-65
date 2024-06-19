@@ -13,8 +13,6 @@ html
       .navbar.navbar-expand-md.navbar-light.me-auto
         = link_to t('navbar.home'), root_path, { class: 'nav-link link-dark' }
       .nav.nav-pills
-        - if signed_in?
-          = link_to t('.new_bulletin'), new_bulletin_path, { class: 'nav-link link-dark' }
         - unless signed_in?
           = link_to auth_request_path('github'), method: :post, class: 'nav-link link-dark' do
             i.bi.bi-github
