@@ -3,7 +3,7 @@
     .col
       section#bulletin-info
       h4 = @bulletin.title
-      p = @bulletin.description
+      p = simple_format(@bulletin.description)
 
     .col
       section#bulletin-cover

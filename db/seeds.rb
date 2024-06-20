@@ -9,5 +9,7 @@ seed_file = ENV.fetch('SEED_NAME', nil)
 if seed_file.present?
   require_relative "seeds/#{seed_file}"
 else
+  require_relative 'seeds/users'
   require_relative 'seeds/categories'
+  require_relative 'seeds/bulletins'
 end

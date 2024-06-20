@@ -3,5 +3,5 @@
   .card-body
     .card-title
       h4 = bulletin.title
-    .card-text = bulletin.description
+    .card-text = simple_format(bulletin.description)
   .card-footer = time_ago_in_words bulletin.updated_at

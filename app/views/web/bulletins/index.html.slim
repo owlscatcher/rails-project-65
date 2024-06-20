@@ -1,9 +1,11 @@
 .container.px-0
-  .row
-    .col-lg-3.col-md-4.col-sm-6.mb-4
-      - if signed_in?
+  .row.mt-4#bulletins-section
+    - if signed_in?
+      .col-lg-3.col-md-4.col-sm-6.mb-4
         = render 'new_bulletin'
     - @bulletins.latest.each do |bulletin|
       .col-lg-3.col-md-4.col-sm-6.mb-4
         = link_to bulletin_path(bulletin), class: 'text-decoration-none' do
           = render 'bulletin', bulletin:
+  .div#pagination-section
+    .d-flex.justify-content-center == pagy_bootstrap_nav(@pagy)

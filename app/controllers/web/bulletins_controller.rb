@@ -3,7 +3,7 @@
 module Web
   class BulletinsController < ApplicationController
     def index
-      @bulletins = Bulletin.all
+      @pagy, @bulletins = pagy(Bulletin.all)
     end
 
     def show
@@ -15,8 +15,7 @@ module Web
     end
 
     def create
-      @bulletin = Bulletin.new(bulletin_params)
-      @bulletin.user_id = current_user.id
+      @bulletin = current_user.bulletins.build(bulletin_params)
 
       if @bulletin.save
         redirect_to @bulletin

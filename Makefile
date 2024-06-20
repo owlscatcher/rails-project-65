@@ -11,7 +11,9 @@ setup:
 	yarn install
 	yarn build
 	yarn build:css
-	bin/rails db:migrate db:seed
+	bin/rails db:migrate
+	bin/rails preload:preload_images
+	bin/rails db:seed
 
 without-production:
 	bundle config set --local without 'production'
@@ -20,7 +22,9 @@ setup-without-production: without-production setup
 	cp -n .env.github .env || true
 
 cleanup:
-	bin/rails db:reset
+	bin/rails db:drop db:create db:migrate
+	bin/rails preload:preload_images
+	bin/rails db:seed
 
 check: test lint
 
