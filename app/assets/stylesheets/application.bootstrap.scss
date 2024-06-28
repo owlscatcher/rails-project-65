@@ -1,13 +1,18 @@
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';
 
-.x-card-img-top {
-  height: 150px;
+.x-object-fit-cover {
+  height: 200px;
   -o-object-fit: cover;
-    object-fit: cover;
+  object-fit: cover;
+}
+
+.x-minimal-card-size {
+  min-height: 100px;
 }
 
 .card {
+  height: 100%;
   transition: box-shadow 0.3s;
 
   &:hover {

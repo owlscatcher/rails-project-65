@@ -1,7 +1,7 @@
-.card.h-100.d-flex.flex-column
-  img = image_tag(bulletin.image, class: 'x-card-img-top')
+.card
+  img = image_tag(bulletin.image, class: 'card-img-top x-object-fit-cover')
   .card-body
     .card-title
       h4 = bulletin.title
-    .card-text = simple_format(bulletin.description)
+    .card-text = simple_format(bulletin.description.truncate(100))
   .card-footer = time_ago_in_words bulletin.updated_at
