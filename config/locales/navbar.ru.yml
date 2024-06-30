@@ -1,3 +1,6 @@
 ru:
   navbar:
     home: Главная
+    profile: Мои объявления
+    add_bulletin: Добавить объявление
+    admin_panel: Панель администратора

@@ -1,0 +1,11 @@
+section#bulletin-table
+  table.table
+    thead
+      tr
+        th = t('.title')
+        th = t('.state')
+        th = t('.added_date')
+        th = t('.actions')
+    tbody
+      - bulletins.each do |bulletin|
+        = render 'bulletin_row', bulletin:

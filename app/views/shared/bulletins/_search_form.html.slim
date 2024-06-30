@@ -1,0 +1,13 @@
+= search_form_for @q, url: do |f|
+  .row
+    .col-6
+      = f.text_field :title_cont, class: 'form-control', hint: 'Искать по названию объявления'
+      small.form-text.text-muted = t('.title_hint')
+    .col
+      .form-group
+        = f.collection_select :category_id_eq, Category.all, :id, :name, { :include_blank => true}, {:class => 'form-select form-select' }
+        small.form-text.text-muted = t('.category_hint')
+      = f.button :submit, { class: 'btn me-2' } do
+        i.bi.bi-search
+      = link_to url, class: 'btn' do
+        i.bi.bi-eraser-fill

@@ -1,0 +1,7 @@
+ru:
+  admin:
+    actions:
+      back: Назад
+      delete: Удалить
+      edit: Изменить
+      new: Создать

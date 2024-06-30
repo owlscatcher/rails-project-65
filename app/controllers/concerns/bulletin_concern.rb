@@ -4,7 +4,8 @@ module BulletinConcern
   extend ActiveSupport::Concern
 
   def index
-    @pagy, @bulletins = pagy(Bulletin.all)
+    @q = Bulletin.ransack(params[:q])
+    @pagy, @bulletins = pagy(@q.result)
   end
 
   def show

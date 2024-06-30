@@ -1,0 +1,8 @@
+ru:
+  shared:
+    bulletins:
+      search_form:
+        search: Поиск
+        reset: Сброс
+        title_hint: Искать по названию объявления
+        category_hint: Выбрать категорию

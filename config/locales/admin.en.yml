@@ -1,0 +1,7 @@
+en:
+  admin:
+    actions:
+      back: Back
+      delete: Delete
+      edit: Edit
+      new: New

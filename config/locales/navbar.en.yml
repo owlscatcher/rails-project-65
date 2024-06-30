@@ -1,3 +1,6 @@
 en:
   navbar:
     home: Home
+    profile: My Bulletins
+    add_bulletin: Add Bulletin
+    admin_panel: Admin Panel

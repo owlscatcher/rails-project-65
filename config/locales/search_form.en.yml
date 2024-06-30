@@ -1,0 +1,8 @@
+en:
+  shared:
+    bulletins:
+      search_form:
+        search: Search
+        reset: Reset
+        title_hint: Search by ad title
+        category_hint: Selected category

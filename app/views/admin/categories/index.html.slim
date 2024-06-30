@@ -1,12 +1,16 @@
-.container#admin-category
-  = link_to t('.new'), new_admin_category_path, class: 'btn btn-primary mr-2'
-  table.table
-    thead
-      tr
-        th = t('.title')
-        th = t('.actions')
-    tbody
-      - @categories.each do |category|
-        tr
-          td = category.name
-          td = link_to t('.edit'), edit_admin_category_path(category), class: 'btn btn-sm btn-primary mr-2'
+.container.px-0#admin-categories
+  .row
+    .col-2
+      = render 'admin/shared/nav_panel', selected: 'categories'
+    .col
+      = link_to t('.new'), new_admin_category_path, class: 'btn btn-primary mr-2'
+      table.table
+        thead
+          tr
+            th = t('.title')
+            th = t('.actions')
+        tbody
+          - @categories.each do |category|
+            tr
+              td = category.name
+              td = link_to t('.edit'), edit_admin_category_path(category), class: 'btn btn-sm btn-primary mr-2'
