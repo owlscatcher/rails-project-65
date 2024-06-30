@@ -1,0 +1,11 @@
+.container#admin-bulletin
+  .table
+    thead
+      tr
+        th = t('.title')
+        th = t('.state')
+        th = t('.added_date')
+        th = t('.actions')
+    tbody
+      - @bulletins.each do |bulletin|
+

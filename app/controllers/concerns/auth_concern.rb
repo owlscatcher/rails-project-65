@@ -19,4 +19,10 @@ module AuthConcern
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
   end
+
+  class NotAuthenticatedError < StandardError; end
+
+  def authenticate_user!
+    raise NotAuthenticatedError unless signed_in?
+  end
 end

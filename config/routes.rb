@@ -9,6 +9,12 @@ Rails.application.routes.draw do
     resources :bulletins
   end
 
+  namespace :admin do
+    resources :bulletins, only: %i[index new create edit update destroy]
+    resources :categories, only: %i[index new create edit update destroy]
+    resources :users, only: %i[index new create edit update destroy]
+  end
+
   root 'web/bulletins#index'
   get 'up' => 'rails/health#show', as: :rails_health_check
 end

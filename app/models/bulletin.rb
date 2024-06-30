@@ -13,4 +13,6 @@ class Bulletin < ApplicationRecord
                     size: { less_than: 5.megabytes }
 
   scope :latest, -> { order(created_at: :desc) }
+
+  scope :on_moderation, -> { order(state: :moderation) }
 end

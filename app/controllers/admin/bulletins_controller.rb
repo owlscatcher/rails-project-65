@@ -1,7 +1,16 @@
 # frozen_string_literal: true
 
-module Web
+module Admin
   class BulletinsController < ApplicationController
     include BulletinConcern
+
+    def publish
+    end
+
+    def reject
+    end
+
+    def archive
+    end
   end
 end

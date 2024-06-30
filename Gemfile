@@ -46,6 +46,7 @@ group :production do
   gem 'pg'
 end
 
+gem 'aasm'
 gem 'active_storage_validations'
 gem 'faker', '~> 3.3', '>= 3.3.1'
 gem 'file_validators'
@@ -55,6 +56,7 @@ gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'pagy', '~> 8.4'
+gem 'pundit'
 gem 'ransack'
 gem 'rubocop-performance', '~> 1.21'
 gem 'rubocop-rails', '~> 2.24', '>= 2.24.1'
