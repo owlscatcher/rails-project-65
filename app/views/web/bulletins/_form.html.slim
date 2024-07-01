@@ -1,0 +1,8 @@
+.container.px-0
+  = simple_form_for bulletin, url: do |f|
+    = f.input :title
+    = f.input :description
+    = f.association :category
+    = f.file_field :image
+    br
+    = f.button :submit, class: 'btn btn-success mt-4'

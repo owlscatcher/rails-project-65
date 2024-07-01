@@ -1,0 +1,22 @@
+tr
+  td = bulletin.title
+  td = bulletin.state
+  td = time_ago_in_words bulletin.created_at
+  td(style='position: sticky; right:  0; background: white; z-index:  1;')
+    .d-flex.justify-content-start.align-items-start
+      div(title="#{t('admin.actions.show')}")
+        = link_to bulletin_path(bulletin), class: 'btn btn-sm me-2' do
+          i.bi.bi-eye
+      div(title="#{t('admin.actions.edit')}")
+        = link_to edit_bulletin_path(bulletin), class: 'btn btn-sm me-2' do
+          i.bi.bi-pencil
+      - if bulletin.may_to_moderate?
+        div(title="#{t('admin.actions.to_moderate')}")
+          = link_to to_moderate_bulletin_path(bulletin),
+          data: { turbo_method: :patch }, class: 'btn btn-sm me-2' do
+            i.bi.bi-rocket
+      - if bulletin.may_archive?
+        div(title="#{t('admin.actions.archive')}")
+          = link_to archive_bulletin_path(bulletin),
+          data: { turbo_method: :patch }, class: 'btn btn-sm' do
+            i.bi.bi-archive.text-danger

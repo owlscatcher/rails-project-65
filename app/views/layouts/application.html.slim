@@ -13,7 +13,7 @@ html
       .navbar.navbar-expand-md.navbar-light.me-auto
         = link_to t('navbar.home'), root_path, { class: 'nav-link link-dark me-2' }
         - if signed_in?
-          = link_to t('navbar.profile'), root_path, { class: 'nav-link link-dark me-2' }
+          = link_to t('navbar.profile'), profile_index_path, { class: 'nav-link link-dark me-2' }
           = link_to t('navbar.add_bulletin'), new_bulletin_path, { class: 'nav-link link-dark' }
       .nav.nav-pills
         - unless signed_in?

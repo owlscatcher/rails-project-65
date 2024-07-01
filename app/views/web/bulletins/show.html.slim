@@ -1,10 +1,19 @@
 .container.px-0
-  .row.mt-4
-    .col
-      section#bulletin-info
-      h4 = @bulletin.title
-      p = simple_format(@bulletin.description)
-
-    .col
-      section#bulletin-cover
-      = image_tag(@bulletin.image, class: 'img-fluid')
+  .card.shadow.p-4
+    .row.mt-4
+      .col
+        section#bulletin-info
+        .row
+          - if policy(@bulletin).edit?
+            .col-1
+              div(title="#{t('admin.actions.edit')}")
+                = link_to edit_bulletin_path(@bulletin), class: 'btn btn-sm me-2' do
+                  i.bi.bi-pencil
+          .col-auto
+            h4 = @bulletin.title
+        .row
+          small.text-muted = @bulletin.user.name
+          p = simple_format(@bulletin.description)
+      .col
+        section#bulletin-cover
+        = image_tag(@bulletin.image, class: 'img-fluid')

@@ -5,9 +5,11 @@ one:
   description: MyString
   user: one
   category: one
+  state: draft
 
 two:
   title: MyString2
   description: MyString
   user: two
   category: two
+  state: draft

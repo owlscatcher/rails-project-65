@@ -7,6 +7,7 @@ en:
       new: New
       show: Show
       archive: Archive
+      to_moderate: To moderate
     shared:
       nav_panel:
         categories: All categories
