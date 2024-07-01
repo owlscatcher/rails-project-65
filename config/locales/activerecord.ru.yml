@@ -1,0 +1,27 @@
+ru:
+  activerecord:
+    models:
+      bulletin: Объявление
+      bulletins: Объявления
+      category: Категория
+      categories: Категории
+      user: Пользователь
+      users: Пользователи
+    attributes:
+      bulletin:
+        title: Название
+        description: Описание
+        category: Категория
+        user: Пользователь
+        state: Состояние
+        created_at: Дата создания
+      category:
+        id: ID
+        name: Название
+      user:
+        id: ID
+        name: Имя
+        email: Email
+        bulletins: Объявления
+        admin: Админ. права?
+

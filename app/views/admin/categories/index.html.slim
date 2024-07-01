@@ -3,14 +3,7 @@
     .col-2
       = render 'admin/shared/nav_panel', selected: 'categories'
     .col
-      = link_to t('.new'), new_admin_category_path, class: 'btn btn-primary mr-2'
-      table.table
-        thead
-          tr
-            th = t('.title')
-            th = t('.actions')
-        tbody
-          - @categories.each do |category|
-            tr
-              td = category.name
-              td = link_to t('.edit'), edit_admin_category_path(category), class: 'btn btn-sm btn-primary mr-2'
+      h2.mb-4 = t('activerecord.models.categories')
+      br
+      = link_to t('admin.actions.new'), new_admin_category_path, class: 'btn btn-sm btn-outline-primary mb-2'
+      = render 'categories_table', categories: @categories

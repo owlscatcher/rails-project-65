@@ -3,6 +3,10 @@
 module BulletinConcern
   extend ActiveSupport::Concern
 
+  included do
+    after_action :verify_authorized, except: %i[index show]
+  end
+
   def index
     @q = Bulletin.ransack(params[:q])
     @pagy, @bulletins = pagy(@q.result)
@@ -13,10 +17,12 @@ module BulletinConcern
   end
 
   def new
+    authorize Bulletin
     @bulletin = Bulletin.new
   end
 
   def create
+    authorize Bulletin
     @bulletin = current_user.bulletins.build(bulletin_params)
 
     if @bulletin.save

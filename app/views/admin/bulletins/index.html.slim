@@ -3,8 +3,8 @@
     .col-2
       = render 'admin/shared/nav_panel', selected: 'bulletins'
     .col
+      h2.mb-4 = t('activerecord.models.bulletins')
       = render 'shared/bulletins/search_form', url: admin_bulletins_url
       = render 'bulletins_table', bulletins: @bulletins
-  .div#pagination-section
-    .d-flex.justify-content-center == pagy_bootstrap_nav(@pagy)
-
+      .div#pagination-section
+        .d-flex.justify-content-center == pagy_bootstrap_nav(@pagy)

@@ -5,3 +5,17 @@ en:
       delete: Delete
       edit: Edit
       new: New
+      show: Show
+      archive: Archive
+    shared:
+      nav_panel:
+        categories: All categories
+        bulletins: All bulletins
+        on_moderation: Bulletins on moderation
+        users: All users
+    table_headers:
+      actions: Actions
+    categories:
+      create:
+        success: "Category was created successfully"
+        fail: "Не удалось создать категорию. Проверьте введенные данные"

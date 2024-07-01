@@ -2,6 +2,11 @@ tr
   td = bulletin.title
   td = 'TODO:STATE'
   td = time_ago_in_words bulletin.created_at
-  td
-    = link_to t('admin.actions.show'), bulletin_path(bulletin), class: 'btn btn-sm btn-primary'
-    = link_to t('admin.actions.archive'), bulletin_path(bulletin), class: 'btn btn-sm btn-danger'
+  td(style='position: sticky; right:  0; background: white; z-index:  1;')
+    .d-flex.justify-content-end.align-items-end
+      div(title="#{t('admin.actions.show')}")
+        = link_to bulletin_path(bulletin), class: 'btn btn-sm me-2' do
+          i.bi.bi-eye
+      div(title="#{t('admin.actions.archive')}")
+        = link_to bulletin_path(bulletin), class: 'btn btn-sm' do
+          i.bi.bi-archive.text-danger

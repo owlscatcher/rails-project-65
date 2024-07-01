@@ -4,13 +4,10 @@ module Admin
   class BulletinsController < ApplicationController
     include BulletinConcern
 
-    def publish
-    end
+    def publish; end
 
-    def reject
-    end
+    def reject; end
 
-    def archive
-    end
+    def archive; end
   end
 end

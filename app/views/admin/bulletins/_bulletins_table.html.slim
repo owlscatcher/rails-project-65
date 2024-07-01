@@ -1,11 +1,13 @@
 section#bulletin-table
-  table.table
-    thead
-      tr
-        th = t('.title')
-        th = t('.state')
-        th = t('.added_date')
-        th = t('.actions')
-    tbody
-      - bulletins.each do |bulletin|
-        = render 'bulletin_row', bulletin:
+  div.table-responsive
+    table.table.table-hover.text-nowrap
+      thead
+        tr
+          th = t('activerecord.attributes.bulletin.title')
+          th = t('activerecord.attributes.bulletin.state')
+          th = t('activerecord.attributes.bulletin.created_at')
+          th.text-end(style="position: sticky; right:  0; background: white; z-index:  1; width: 10%")
+            = t('admin.table_headers.actions')
+      tbody
+        - bulletins.each do |bulletin|
+          = render 'bulletin_row', bulletin:

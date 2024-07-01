@@ -2,6 +2,8 @@
 
 module Admin
   class CategoriesController < ApplicationController
+    before_action :set_category, only: %i[edit update destroy]
+
     def index
       @pagy, @categories = pagy(Category.all)
     end
@@ -10,39 +12,45 @@ module Admin
       @category = Category.new
     end
 
-    def edit
-      @category = Category.find(params[:id])
-    end
+    def edit; end
 
     def create
       @category = Category.new(category_params)
 
       if @category.save
-        redirect_to admin_categories_path, notice: 'Category was successfully created.'
+        redirect_to admin_categories_path, notice: t('.success')
       else
-        render :new
+        flash.now['alert'] = t('.fail')
+        render :new, status: :unprocessable_entity
       end
     end
 
     def update
-      @category = Category.find(params[:id])
-
       if @category.update(category_params)
-        redirect_to admin_categories_path, notice: 'Category was successfully updated.'
+        redirect_to admin_categories_path, notice: t('.success')
       else
-        render :edit
+        flash.now['alert'] = t('.fail')
+        render :edit, status: :unprocessable_entity
       end
     end
 
     def destroy
-      @category = Category.find(params[:id])
-      @category.destroy
+      if @category.destroy
+        redirect_to admin_categories_path, notice: t('.success')
+      else
+        flash.now['alert'] = t('.fail')
+        render admin_categories_path, status: :unprocessable_entity
+      end
     end
 
     private
 
     def category_params
       params.require(:category).permit(:name)
+    end
+
+    def set_category
+      @category = Category.find(params[:id])
     end
   end
 end

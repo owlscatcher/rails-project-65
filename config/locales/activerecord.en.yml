@@ -1,0 +1,26 @@
+en:
+  activerecord:
+    models:
+      bulletin: Bulletin
+      bulletins: Bulletins
+      category: Category
+      categories: Categories
+      user: User
+      users: Users
+    attributes:
+      bulletin:
+        title: Title
+        description: Description
+        category: Category
+        user: User
+        state: State
+        created_at: Added date
+      category:
+        id: ID
+        name: Name
+      user:
+        id: ID
+        name: Name
+        email: Email
+        bulletins: Bulletins
+        admin: Admin?

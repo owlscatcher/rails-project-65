@@ -1,0 +1,19 @@
+tr
+  td = user.id
+  td = user.name
+  td = user.email
+  td = user.bulletins.count
+  td
+    - if user.admin?
+      i.bi.bi-circle-fill.text-success
+    - else
+      i.bi.bi-circle-fill.text-danger
+  td(style='position: sticky; right:  0; background: white; z-index:  1;')
+    .d-flex.justify-content-end.align-items-end
+      div(title="#{t('admin.actions.edit')}")
+        = link_to edit_admin_user_path(user), class: 'btn btn-sm me-2' do
+          i.bi.bi-pencil
+      div(title="#{t('admin.actions.delete')}")
+        = link_to admin_user_path(user),
+        data: { turbo_method: :delete, turbo_confirm: t('.confirm') } do
+          i.bi.bi-trash.text-danger

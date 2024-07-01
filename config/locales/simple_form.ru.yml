@@ -1,18 +1,18 @@
-en:
+ru:
   simple_form:
-    "yes": "Yes"
-    "no": "No"
+    "yes": "Да"
+    "no": "Нет"
     required:
-      text: "required"
+      text: "требуется"
       mark: "*"
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Пожалуйста, ознакомьтесь с приведенными ниже проблемами:"
     hints:
-      title_size: "5-255 symbols"
-      body_size: "200 to 4000 characters"
+      title_size: "5-255 символов"
+      body_size: "От 200 до 4000 символов"
     # Examples
     # labels:
     #   defaults:
@@ -34,8 +34,8 @@ en:
     #     age: 'Select your age'
   helpers:
     submit:
-      user:
-        create: "Add %{model}"
-        update: "Save Changes"
+      post:
+        create: "Создать %{model}"
+        update: "Сохранить изменения"
       post_comment:
-        create: "Add %{model}"
+        create: "Оставить %{model}"

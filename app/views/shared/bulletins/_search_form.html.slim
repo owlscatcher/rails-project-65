@@ -5,7 +5,8 @@
       small.form-text.text-muted = t('.title_hint')
     .col
       .form-group
-        = f.collection_select :category_id_eq, Category.all, :id, :name, { :include_blank => true}, {:class => 'form-select form-select' }
+        = f.collection_select :category_id_eq,
+        Category.all, :id, :name, { include_blank: true }, { class: 'form-select form-select' }
         small.form-text.text-muted = t('.category_hint')
       = f.button :submit, { class: 'btn me-2' } do
         i.bi.bi-search

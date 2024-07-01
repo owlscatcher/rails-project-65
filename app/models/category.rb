@@ -3,5 +3,5 @@
 class Category < ApplicationRecord
   has_many :bulletins, dependent: :destroy
 
-  validates :name, presence: true, uniqueness: true # rubocop:disable Rails/UniqueValidationWithoutIndex
+  validates :name, presence: true, uniqueness: true, length: { minimum: 3, maximum: 255 } # rubocop:disable Rails/UniqueValidationWithoutIndex
 end
