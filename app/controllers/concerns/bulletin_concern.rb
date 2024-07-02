@@ -67,7 +67,7 @@ module BulletinConcern
     return unless @bulletin.may_archive?
 
     @bulletin.archive!
-    redirect_to profile_index_path, notice: t('.success')
+    redirect_to profile_path, notice: t('.success')
   end
 
   def to_moderate
@@ -75,7 +75,7 @@ module BulletinConcern
     return unless @bulletin.may_to_moderate?
 
     @bulletin.to_moderate!
-    redirect_to profile_index_path, notice: t('.success')
+    redirect_to profile_path, notice: t('.success')
   end
 
   private

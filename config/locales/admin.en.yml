@@ -1,69 +1,70 @@
 en:
-  admin:
-    actions:
-      back: Back
-      delete: Delete
-      edit: Edit
-      new: New
-      show: Show
-      publish: Publish
-      reject: Reject
-      archive: Archive
-      to_moderate: To moderate
-    shared:
-      nav_panel:
-        categories: All categories
-        bulletins: All bulletins
-        under_moderation: Bulletins on moderation
-        users: All users
-    table_headers:
-      actions: Actions
-    bulletins:
-      ulletin_row:
+  web:
+    admin:
+      actions:
+        back: Back
+        delete: Delete
+        edit: Edit
+        new: New
+        show: Show
+        publish: Publish
+        reject: Reject
+        archive: Archive
+        to_moderate: To moderate
+      shared:
+        nav_panel:
+          categories: All categories
+          bulletins: All bulletins
+          under_moderation: Bulletins on moderation
+          users: All users
+      table_headers:
+        actions: Actions
+      bulletins:
+        ulletin_row:
+          archive:
+            confirm: Confirm archiving
+          reject:
+            confirm: Confirm rejecting
+          publish:
+            confirm: Confirm publishing
         archive:
-          confirm: Confirm archiving
+          success: The bulletin was successfully archived
         reject:
-          confirm: Confirm rejecting
+          success: The bulletin was successfully returned
         publish:
-          confirm: Confirm publishing
-      archive:
-        success: The bulletin was successfully archived
-      reject:
-        success: The bulletin was successfully returned
-      publish:
-        success: The bulletin was successfully published
-      index_under_moderation:
-        header: Bulletins under moderation
-      index:
-        header: All bulletins
-    categories:
-      category_row:
-        confirm: Confirm deletion of categories
-      create:
-        success: "Category was created successfully"
-        fail: "Failed to create a category. Check the entered data"
-      update:
-        success: "Category was updated successfully"
-        fail: "Failed to update a category. Check the entered data"
-      desroy:
-        success: "Category was deleted successfully"
-        fail: "Failed to delete a category. Check the entered data"
-      index:
-        header: All categories
-      edit:
-        header: Edit a category
-      new:
-        header: New category
-    users:
-      user_row:
-        confirm: Confirm deletion of the user
-      destroy:
-        success: User was successfully deleted
-        fail: Failed to delete a category. Check the entered data
-      update:
-        success: User was successfully updated
-        fail: Failed to delete a category. Check the entered data
-      index:
-        header: All users
-      edit:
-        header: Edit a user
+          success: The bulletin was successfully published
+        index_under_moderation:
+          header: Bulletins under moderation
+        index:
+          header: All bulletins
+      categories:
+        category_row:
+          confirm: Confirm deletion of categories
+        create:
+          success: "Category was created successfully"
+          fail: "Failed to create a category. Check the entered data"
+        update:
+          success: "Category was updated successfully"
+          fail: "Failed to update a category. Check the entered data"
+        desroy:
+          success: "Category was deleted successfully"
+          fail: "Failed to delete a category. Check the entered data"
+        index:
+          header: All categories
+        edit:
+          header: Edit a category
+        new:
+          header: New category
+      users:
+        user_row:
+          confirm: Confirm deletion of the user
+        destroy:
+          success: User was successfully deleted
+          fail: Failed to delete a category. Check the entered data
+        update:
+          success: User was successfully updated
+          fail: Failed to delete a category. Check the entered data
+        index:
+          header: All users
+        edit:
+          header: Edit a user

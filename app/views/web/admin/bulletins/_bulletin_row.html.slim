@@ -5,22 +5,22 @@ tr
   td(style='position: sticky; right:  0; background: white; z-index:  1;')
     .d-flex.justify-content-start.align-items-start
       - if render_for == 'under_moderation'
-        div(title="#{t('admin.actions.publish')}")
+        div(title="#{t('web.admin.actions.publish')}")
           = link_to publish_admin_bulletin_path(bulletin),
           data: { turbo_method: :patch, turbo_confirm: t('.publish.confirm') },
           class: 'btn btn-sm me-2' do
             i.bi.bi-check2-all.text-success
-        div(title="#{t('admin.actions.reject')}")
+        div(title="#{t('web.admin.actions.reject')}")
           = link_to reject_admin_bulletin_path(bulletin),
           data: { turbo_method: :patch, turbo_confirm: t('.reject.confirm', action: :archive) },
           class: 'btn btn-sm me-2' do
             i.bi.bi-x-lg.text-danger-50
       - else
-        div(title="#{t('admin.actions.show')}")
+        div(title="#{t('web.admin.actions.show')}")
           = link_to bulletin_path(bulletin), class: 'btn btn-sm me-2' do
             i.bi.bi-eye
       - if bulletin.may_archive?
-        div(title="#{t('admin.actions.archive')}")
+        div(title="#{t('web.admin.actions.archive')}")
           = link_to archive_admin_bulletin_path(bulletin),
           data: { turbo_method: :patch, turbo_confirm: t('.archive.confirm') },
           class: 'btn btn-sm' do

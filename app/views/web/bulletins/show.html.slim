@@ -6,7 +6,7 @@
         .row
           - if policy(@bulletin).edit?
             .col-1
-              div(title="#{t('admin.actions.edit')}")
+              div(title="#{t('web.admin.actions.edit')}")
                 = link_to edit_bulletin_path(@bulletin), class: 'btn btn-sm me-2' do
                   i.bi.bi-pencil
           .col-auto

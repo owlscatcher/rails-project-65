@@ -4,7 +4,7 @@
       h2 = t('.header')
       hr
     .row#bulletin-search-form
-      = render 'shared/bulletins/search_form', url: root_url
+      = render 'web/shared/bulletins/search_form', url: root_url
     .row.mt-4#bulletins-section
       - if signed_in?
         .col-lg-3.col-md-4.col-sm-6.mb-4

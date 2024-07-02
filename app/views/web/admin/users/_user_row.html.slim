@@ -10,10 +10,10 @@ tr
       i.bi.bi-circle-fill.text-danger
   td(style='position: sticky; right:  0; background: white; z-index:  1;')
     .d-flex.justify-content-end.align-items-end
-      div(title="#{t('admin.actions.edit')}")
+      div(title="#{t('web.admin.actions.edit')}")
         = link_to edit_admin_user_path(user), class: 'btn btn-sm me-2' do
           i.bi.bi-pencil
-      div(title="#{t('admin.actions.delete')}")
+      div(title="#{t('web.admin.actions.delete')}")
         = link_to admin_user_path(user),
         data: { turbo_method: :delete, turbo_confirm: t('.confirm') },
         class: 'btn btn-sm' do

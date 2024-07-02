@@ -13,20 +13,20 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :profile, only: :index
-  end
+    get 'profile', to: 'profile#index', as: :profile
 
-  namespace :admin do
-    get '/', to: 'bulletins#index_under_moderation'
-    resources :bulletins do
-      member do
-        patch :archive
-        patch :publish
-        patch :reject
+    namespace :admin do
+      get '/', to: 'bulletins#index_under_moderation'
+      resources :bulletins do
+        member do
+          patch :archive
+          patch :publish
+          patch :reject
+        end
       end
+      resources :categories, except: %i[show]
+      resources :users, only: %i[index edit update destroy]
     end
-    resources :categories, only: %i[index new create edit update destroy]
-    resources :users, only: %i[index new create edit update destroy]
   end
 
   root 'web/bulletins#index'

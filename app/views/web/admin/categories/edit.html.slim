@@ -1,7 +1,7 @@
 .container.px-0.mt-4.mb-5.pb-5#admin-bulletin
   .row
     .col-2
-      = render 'admin/shared/nav_panel', selected: 'categories'
+      = render 'web/admin/shared/nav_panel', selected: 'categories'
     .col
       h2.mb-4 = t('.header')
       = render 'form', url: admin_category_path(@category)

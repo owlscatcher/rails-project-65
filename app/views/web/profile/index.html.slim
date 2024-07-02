@@ -3,7 +3,7 @@
     mb-4
       h2 = t('.header')
       hr
-    = render 'shared/bulletins/search_form', url: admin_bulletins_url
+    = render 'web/shared/bulletins/search_form', url: admin_bulletins_url
     = render 'bulletins_table', bulletins: @bulletins
     .div#pagination-section
       .d-flex.justify-content-center == pagy_bootstrap_nav(@pagy)
