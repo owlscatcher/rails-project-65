@@ -1,8 +1,11 @@
-.container.px-0
-  = simple_form_for bulletin, url: do |f|
-    = f.input :title
-    = f.input :description
-    = f.association :category
-    = f.file_field :image
-    br
-    = f.button :submit, class: 'btn btn-success mt-4'
+= simple_form_for bulletin, url: do |f|
+  = f.input :title, hint: t('simple_form.hints.title_size')
+  = f.input :description, hint: t('simple_form.hints.description_size')
+  = f.association :category, required: true
+  = f.input :image, as: :file, required: true, hint: t('simple_form.hints.image_size'),
+  input_html: { direct_upload: false, class: 'form-control' }
+  - if bulletin.image.attached? && bulletin.image.persisted?
+    card.p-2
+      = image_tag bulletin.image.variant(:for_form), class: 'img-thumbnail mb-2'
+  br
+  = f.button :submit, class: 'btn btn-success mt-4'

@@ -1,0 +1,9 @@
+.container.px-0.mt-4.mb-5.pb-5#admin-bulletin
+  .row
+    .col-2
+      = render 'admin/shared/nav_panel', selected: 'under_moderation'
+    .col
+      h2.mb-4 = t('.header')
+      = render 'bulletins_table', bulletins: @bulletins, render_for: 'under_moderation'
+      .div#pagination-section
+        .d-flex.justify-content-center == pagy_bootstrap_nav(@pagy)

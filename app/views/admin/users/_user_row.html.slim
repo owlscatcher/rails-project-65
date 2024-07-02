@@ -15,5 +15,6 @@ tr
           i.bi.bi-pencil
       div(title="#{t('admin.actions.delete')}")
         = link_to admin_user_path(user),
-        data: { turbo_method: :delete, turbo_confirm: t('.confirm') } do
+        data: { turbo_method: :delete, turbo_confirm: t('.confirm') },
+        class: 'btn btn-sm' do
           i.bi.bi-trash.text-danger

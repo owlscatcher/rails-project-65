@@ -1,8 +1,8 @@
 section#admin-nav-panel
   - selected = local_assigns[:selected]
 
-  = link_to t('.on_moderation'), admin_bulletins_path,
-  class: "btn btn-sm w-100 #{'btn-primary' if selected == 'on_moderation'} text-start"
+  = link_to t('.under_moderation'), admin_path,
+  class: "btn btn-sm w-100 #{'btn-primary' if selected == 'under_moderation'} text-start"
   = link_to t('.bulletins'), admin_bulletins_path,
   class: "btn btn-sm w-100 #{'btn-primary' if selected == 'bulletins'} text-start"
   = link_to t('.categories'), admin_categories_path,

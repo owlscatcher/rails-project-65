@@ -4,3 +4,5 @@ en:
     profile: My Bulletins
     add_bulletin: Add Bulletin
     admin_panel: Admin Panel
+    logout: Logout
+    login: Sign in with GitHub

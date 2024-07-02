@@ -1,0 +1,28 @@
+en:
+  web:
+    auth:
+      signed_in: You have successfully logged in. Welcome!
+      logout:
+        signed_out: You have successfully logged out. Have a nice day!
+    bulletins:
+      create:
+        success: Bulletin was created
+        fail: Bulletin was not created
+      update:
+        success: Bulletin was updated
+        fail: Bulletin was not updated
+      to_moderate:
+        success: Bulletin was sent to moderation
+      archive:
+        success: Bulletin was sent to archive
+      index:
+        header: Bulletins
+      edit:
+        header: Edit a bulletin
+      new:
+        header: New bulletin
+    profile:
+      bulletin_row:
+        confirm: Confirm archiving
+      index:
+        header: My bulletins

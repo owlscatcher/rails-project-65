@@ -1,0 +1,28 @@
+ru:
+  web:
+    auth:
+      signed_in: Вы успешно вошли. Добро пожаловать!
+      logout:
+        signed_out: Вы успешно вышли. Всего доброго!
+    bulletins:
+      create:
+        success: Объявление было создано
+        fail: Объявление не было создано
+      update:
+        success: Объявление было обновлено
+        fail: Объявление не было обновлено
+      to_moderate:
+        success: Объявление отправлено на модерацию
+      archive:
+        success: Объявление отправилось в архив
+      index:
+        header: Объявления
+      edit:
+        header: Изменить объявление
+      new:
+        header: Новое объявление
+    profile:
+      bulletin_row:
+        confirm: Подтвердить архивацию
+      index:
+        header: Мои объявления

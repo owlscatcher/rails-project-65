@@ -4,6 +4,8 @@ require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
+    @bulletin_draft = bulletins(:draft)
+    @buletin_archived = bulletins(:archived)
     @user = users(:one)
     @category = categories(:one)
     @attr = {
@@ -12,6 +14,17 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       image: fixture_file_upload('1.jpg', 'image/jpg'),
       category_id: @category.id
     }
+  end
+
+  test 'should get root' do
+    get root_path
+    assert_response :success
+  end
+
+  test 'should get new' do
+    sign_in users(:one)
+    get new_bulletin_path
+    assert_response :success
   end
 
   test 'should create new bulletins' do

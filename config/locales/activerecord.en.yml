@@ -14,6 +14,13 @@ en:
         category: Category
         user: User
         state: State
+        states:
+          draft: Draft
+          published: Published
+          archived: Archived
+          rejected: Rejected
+          under_moderation: Under moderation
+        image: Image
         created_at: Added date
       category:
         id: ID
@@ -24,3 +31,11 @@ en:
         email: Email
         bulletins: Bulletins
         admin: Admin?
+    errors:
+      messages:
+        blank: can't be blank
+        required: is required
+        too_short: insufficient length (cannot be less than %{count} character)
+        too_long: too long (cannot be longer than %{count} character)
+        confirmation: doesn't match %{attribute}
+        record_invalid: doesn't create a record

@@ -14,6 +14,13 @@ ru:
         category: Категория
         user: Пользователь
         state: Состояние
+        states:
+          draft: "Черновик"
+          published: "Опубликовано"
+          archived: "Архивировано"
+          rejected: "Отклонено"
+          under_moderation: "На модерации"
+        image: Фотография
         created_at: Дата создания
       category:
         id: ID
@@ -24,4 +31,11 @@ ru:
         email: Email
         bulletins: Объявления
         admin: Админ. права?
-
+    errors:
+      messages:
+        blank: не может быть пустым
+        required: должна быть выбрана
+        too_short: недостаточной длины (не может быть меньше %{count} символа)
+        too_long: слишком большой длины (не может быть больше чем %{count} символа)
+        confirmation: не совпадает с введеным %{attribute}
+        record_invalid: не может быть создан

@@ -13,10 +13,12 @@ class ApplicationController < ActionController::Base
   private
 
   def user_not_authorized
-    redirect_to root_path, alert: t('user_not_authorized')
+    flash[:warning] = t('user_not_authorized')
+    redirect_to root_path
   end
 
   def user_not_authenticated
-    redirect_to root_path, alert: t('user_not_authenticated')
+    flash[:warning] = t('user_not_authenticated')
+    redirect_to root_path
   end
 end

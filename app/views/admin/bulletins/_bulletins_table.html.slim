@@ -1,3 +1,5 @@
+- render_for = local_assigns[:render_for]
+
 section#bulletin-table
   div.table-responsive
     table.table.table-hover.text-nowrap
@@ -10,4 +12,4 @@ section#bulletin-table
             = t('admin.table_headers.actions')
       tbody
         - bulletins.each do |bulletin|
-          = render 'bulletin_row', bulletin:
+          = render 'bulletin_row', bulletin:, render_for:

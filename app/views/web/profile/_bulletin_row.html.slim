@@ -1,6 +1,6 @@
 tr
   td = bulletin.title
-  td = bulletin.state
+  td = localized_bulletin_state(bulletin.state)
   td = time_ago_in_words bulletin.created_at
   td(style='position: sticky; right:  0; background: white; z-index:  1;')
     .d-flex.justify-content-start.align-items-start
@@ -18,5 +18,5 @@ tr
       - if bulletin.may_archive?
         div(title="#{t('admin.actions.archive')}")
           = link_to archive_bulletin_path(bulletin),
-          data: { turbo_method: :patch }, class: 'btn btn-sm' do
+          data: { turbo_method: :patch, turbo_confirm: t('.confirm') }, class: 'btn btn-sm' do
             i.bi.bi-archive.text-danger

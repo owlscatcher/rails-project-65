@@ -1,8 +1,0 @@
-ru:
-  web:
-    auth:
-      callback:
-        already_signed_in: You are already signed in
-        signed_in: Signed in
-      logout:
-        signed_out: Signed out

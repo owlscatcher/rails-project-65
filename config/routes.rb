@@ -17,7 +17,14 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :bulletins, only: %i[index new create edit update destroy]
+    get '/', to: 'bulletins#index_under_moderation'
+    resources :bulletins do
+      member do
+        patch :archive
+        patch :publish
+        patch :reject
+      end
+    end
     resources :categories, only: %i[index new create edit update destroy]
     resources :users, only: %i[index new create edit update destroy]
   end

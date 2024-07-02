@@ -44,4 +44,8 @@ class BulletinPolicy < ApplicationPolicy
   def publish?
     user.admin?
   end
+
+  def index_under_moderation?
+    user.admin?
+  end
 end

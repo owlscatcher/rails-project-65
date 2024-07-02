@@ -6,17 +6,39 @@ ru:
       edit: Изменить
       new: Создать
       show: Показать
+      publish: Опубликовать
+      reject: Отклонить
       archive: Архивировать
       to_moderate: На модерацию
     shared:
       nav_panel:
         categories: Все категории
         bulletins: Все объявления
-        on_moderation: Объявления на модерации
+        under_moderation: Объявления на модерации
         users: Все пользователи
     table_headers:
       actions: Действия
+    bulletins:
+      bulletin_row:
+        archive:
+          confirm: "Подтвердить архивацию"
+        reject:
+          confirm: "Подтвердить отказ к публикации"
+        publish:
+          confirm: "Подтвердить публикацию"
+      archive:
+        success: Объявление было успешно заархивировано
+      reject:
+        success: Объявление было успешно возвращено
+      publish:
+        success: Объявление было успешно опубликовано
+      index_under_moderation:
+        header: Объявления на модерации
+      index:
+        header: Все объявления
     categories:
+      category_row:
+        confirm: Подтверждите удаление категорий
       create:
         success: "Категория создана"
         fail: "Не удалось создать категорию. Проверьте введенные данные"
@@ -26,3 +48,22 @@ ru:
       desroy:
         success: "Категория удалена"
         fail: "Не удалось удалить категорию. Проверьте введенные данные"
+      index:
+        header: Все категории
+      edit:
+        header: Редактировать категорию
+      new:
+        header: Новая категория
+    users:
+      destroy:
+        success: Пользователь удален
+        fail: Не удалось удалить пользователя
+      update:
+        success: Пользователь обновлен
+        fail: Не удалось обновить пользователя. Проверьте введенные данные
+      user_row:
+        confirm: Подтвердите удаление пользователя
+      index:
+        header: Все пользователи
+      edit:
+        header: Редактировать пользователя

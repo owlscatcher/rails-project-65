@@ -7,7 +7,10 @@ module Admin
     private
 
     def authorize_admin
-      redirect_to root_path, alert: t('user_not_admin') unless current_user&.admin?
+      return if current_user&.admin?
+
+      flash[:warning] = t('user_not_admin')
+      redirect_to root_path
     end
   end
 end

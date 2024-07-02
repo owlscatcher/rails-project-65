@@ -4,3 +4,5 @@ ru:
     profile: Мои объявления
     add_bulletin: Добавить объявление
     admin_panel: Панель администратора
+    logout: Выйти
+    login: Войти с GitHub

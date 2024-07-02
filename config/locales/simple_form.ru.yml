@@ -11,8 +11,9 @@ ru:
     error_notification:
       default_message: "Пожалуйста, ознакомьтесь с приведенными ниже проблемами:"
     hints:
-      title_size: "5-255 символов"
-      body_size: "От 200 до 4000 символов"
+      title_size: "От 3 до 50 символов"
+      description_size: "От 10 до 1000 символов"
+      image_size: "Форматы: .png .jpg .jpeg; до 5 Мегабайт"
     # Examples
     # labels:
     #   defaults:
@@ -34,8 +35,11 @@ ru:
     #     age: 'Select your age'
   helpers:
     submit:
-      post:
+      bulletin:
         create: "Создать %{model}"
         update: "Сохранить изменения"
-      post_comment:
-        create: "Оставить %{model}"
+      category:
+        create: "Создать %{model}"
+        update: "Сохранить изменения"
+      user:
+        update: "Сохранить изменения"
