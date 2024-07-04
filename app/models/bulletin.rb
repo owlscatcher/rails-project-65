@@ -7,7 +7,7 @@ class Bulletin < ApplicationRecord
     attached.variant :for_form, resize_to_limit: [nil, 100]
   end
 
-  belongs_to :user
+  belongs_to :user, counter_cache: :bulletins_count
   belongs_to :category, optional: false
 
   validates :title, presence: true, length: { minimum: 3, maximum: 50 }
@@ -16,8 +16,7 @@ class Bulletin < ApplicationRecord
                     content_type: %i[png jpg jpeg],
                     size: { less_than: 5.megabytes }
 
-  scope :latest, -> { order(created_at: :desc) }
-  scope :published, -> { where(state: :published) }
+  scope :latest_published, -> { where(state: :published).order(created_at: :desc) }
 
   def self.ransackable_attributes(_auth_object = nil)
     %w[category_id created_at description id id_value title updated_at user_id]

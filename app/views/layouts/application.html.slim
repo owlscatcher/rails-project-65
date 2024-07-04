@@ -18,8 +18,9 @@ html
       .nav.nav-pills
         - unless signed_in?
           div(title="#{t('navbar.login')}")
-            = link_to auth_request_path('github'), method: :post, class: 'nav-link link-dark' do
-              i.bi.bi-github
+            = form_with url: auth_request_path(:github), data: { turbo: 'false' } do |f|
+              = f.button class: 'nav-link link-dark' do
+                i.bi.bi-github
         - if current_user&.admin?
           = link_to t('navbar.admin_panel'), admin_path, { class: 'nav-link link-dark' }
         - if signed_in?

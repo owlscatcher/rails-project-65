@@ -7,15 +7,9 @@ module Web
       before_action :set_bulletin,
                     only: %i[publish archive reject]
 
-      def index_under_moderation
-        @pagy, @bulletins = pagy(Bulletin.under_moderation.order(updated_at: :desc))
-        authorize @bulletins
-      end
-
       def index
         @q = Bulletin.ransack(params[:q])
         @pagy, @bulletins = pagy(@q.result.order(updated_at: :desc))
-        authorize @bulletins
       end
 
       def archive

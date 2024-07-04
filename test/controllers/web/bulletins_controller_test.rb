@@ -14,6 +14,11 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       image: fixture_file_upload('1.jpg', 'image/jpg'),
       category_id: @category.id
     }
+
+    @image = fixture_file_upload('1.jpg', 'image/jpg')
+    @bulletin_draft.image.attach(@image)
+
+    sign_in @user
   end
 
   test 'should get root' do
@@ -28,11 +33,17 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should create new bulletins' do
-    sign_in @user
     post bulletins_url, params: { bulletin: @attr }
 
     bulletin = Bulletin.find_by(@attr.except(:image))
     assert { bulletin }
     assert_redirected_to bulletin_url(bulletin)
+  end
+
+  test 'should archive bulletins' do
+    patch archive_bulletin_url(@bulletin_draft)
+
+    assert_redirected_to profile_path
+    assert { @bulletin_draft.reload.archived? }
   end
 end

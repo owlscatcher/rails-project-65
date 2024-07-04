@@ -9,25 +9,22 @@ module BulletinConcern
     before_action :authenticate_user!, except: %i[index show]
     before_action :set_bulletin,
                   only: %i[show edit update destroy archive to_moderate]
-    after_action :verify_authorized, except: %i[index show]
   end
 
   def index
     items = signed_in? ? 11 : 12
 
-    @q = Bulletin.published.ransack(params[:q])
+    @q = Bulletin.published.includes(:user).with_attached_image.ransack(params[:q])
     @pagy, @bulletins = pagy(@q.result.order(updated_at: :desc), items:)
   end
 
   def show; end
 
   def new
-    authorize Bulletin
     @bulletin = Bulletin.new
   end
 
   def create
-    authorize Bulletin
     @bulletin = current_user.bulletins.build(bulletin_params)
 
     if @bulletin.save
@@ -38,12 +35,9 @@ module BulletinConcern
     end
   end
 
-  def edit
-    authorize @bulletin
-  end
+  def edit; end
 
   def update
-    authorize @bulletin
     if @bulletin.update(bulletin_params)
       redirect_to @bulletin, notice: t('.success')
     else
@@ -53,8 +47,6 @@ module BulletinConcern
   end
 
   def destroy
-    authorize @bulletin
-
     if @bulletin.destroy
       redirect_to bulletins_path, notice: t('.success')
     else
@@ -63,7 +55,6 @@ module BulletinConcern
   end
 
   def archive
-    authorize @bulletin
     return unless @bulletin.may_archive?
 
     @bulletin.archive!
@@ -71,7 +62,6 @@ module BulletinConcern
   end
 
   def to_moderate
-    authorize @bulletin
     return unless @bulletin.may_to_moderate?
 
     @bulletin.to_moderate!

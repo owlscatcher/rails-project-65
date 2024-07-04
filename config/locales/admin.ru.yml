@@ -33,10 +33,18 @@ ru:
           success: Объявление было успешно возвращено
         publish:
           success: Объявление было успешно опубликовано
-        index_under_moderation:
-          header: Объявления на модерации
         index:
           header: Все объявления
+      home:
+        index:
+          header: Объявления на модерации
+        bulletin_row:
+          archive:
+            confirm: "Подтвердить архивацию"
+          reject:
+            confirm: "Подтвердить отказ к публикации"
+          publish:
+            confirm: "Подтвердить публикацию"
       categories:
         category_row:
           confirm: Подтверждите удаление категорий

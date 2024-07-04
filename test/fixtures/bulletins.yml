@@ -1,15 +1,22 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-archived:
+under_moderation:
   title: MyString1
-  description: MyString
+  description: MyStringMyStringMyStringMyString
   user: one
   category: one
-  state: draft
+  state: under_moderation
+
+archived:
+  title: MyString1
+  description: MyStringMyStringMyStringMyString
+  user: one
+  category: one
+  state: archived
 
 draft:
   title: MyString2
-  description: MyString
-  user: two
-  category: two
+  description: MyStringMyStringMyStringMyString
+  user: one
+  category: one
   state: draft

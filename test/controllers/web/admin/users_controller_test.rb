@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class Admin::BulletinControllerTest < ActionDispatch::IntegrationTest
+class Web::Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

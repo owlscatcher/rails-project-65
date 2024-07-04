@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'profile', to: 'profile#index', as: :profile
 
     namespace :admin do
-      get '/', to: 'bulletins#index_under_moderation'
+      get '/', to: 'home#index'
       resources :bulletins do
         member do
           patch :archive
