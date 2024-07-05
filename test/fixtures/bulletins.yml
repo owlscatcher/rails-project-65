@@ -1,10 +1,17 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
+draft:
+  title: Draft bulletin
+  description: This is over 10 symbols text for draft bulletin
+  user: first_author
+  category: one
+  state: draft
+
 under_moderation:
   title: Under moderation bulletin
   description: This is over 10 symbols text for under moderation bulletin
   user: first_author
-  category: one
+  category: two
   state: under_moderation
 
 archived:
@@ -13,12 +20,3 @@ archived:
   user: second_author
   category: one
   state: archived
-
-draft:
-  title: Draft bulletin
-  description: This is over 10 symbols text for draft bulletin
-  user: admin
-  category: two
-  state: draft
-
-

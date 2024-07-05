@@ -2,6 +2,6 @@
 
 module Web
   class BulletinsController < ApplicationController
-    include BulletinConcern
+    include BulletinsConcern
   end
 end

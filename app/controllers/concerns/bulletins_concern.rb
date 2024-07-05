@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module BulletinConcern
+module BulletinsConcern
   extend ActiveSupport::Concern
 
   included do
@@ -23,7 +23,7 @@ module BulletinConcern
   end
 
   def new
-    @bulletin = Bulletin.new
+    @bulletin = current_user.bulletins.build
     authorize @bulletin
   end
 
@@ -55,18 +55,18 @@ module BulletinConcern
   end
 
   def archive
-    authorize @bulletin
-
     return unless @bulletin.may_archive?
+
+    authorize @bulletin
 
     @bulletin.archive!
     redirect_to profile_index_path, notice: t('.success')
   end
 
   def to_moderate
-    authorize @bulletin
-
     return unless @bulletin.may_to_moderate?
+
+    authorize @bulletin
 
     @bulletin.to_moderate!
     redirect_to profile_index_path, notice: t('.success')

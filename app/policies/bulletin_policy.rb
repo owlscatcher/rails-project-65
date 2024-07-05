@@ -2,7 +2,7 @@
 
 class BulletinPolicy < ApplicationPolicy
   def show?
-    record.published? || author? || admin?
+    record.published? or author? or admin?
   end
 
   def new?
@@ -18,7 +18,7 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def update?
-    author? || admin?
+    author? or admin?
   end
 
   def to_moderate?
@@ -26,7 +26,7 @@ class BulletinPolicy < ApplicationPolicy
   end
 
   def archive?
-    author? || admin?
+    author? or admin?
   end
 
   private

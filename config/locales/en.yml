@@ -30,4 +30,5 @@ en:
       two_words_connector: " and "
       last_word_connector: ", and "
   user_not_authenticated: You must be logged in or registered to perform this action
+  user_not_authorized: Not authorized to perform this action
   user_not_admin: This section is only available to administrators

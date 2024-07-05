@@ -4,8 +4,15 @@ require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @bulletin = bulletins(:draft)
-    @author = users(:author)
+    @image = fixture_file_upload('1.jpg', 'image/jpg')
+
+    @draft = bulletins(:draft)
+    @under_moderation = bulletins(:under_moderation)
+    @archive = bulletins(:archived)
+
+    @first_author = users(:first_author)
+    @second_author = users(:second_author)
+    @admin = users(:admin)
 
     @attr = {
       title: Faker::Lorem.sentence,
@@ -13,9 +20,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
       image: fixture_file_upload('1.jpg', 'image/jpg'),
       category_id: categories(:one).id
     }
-
-    @image = fixture_file_upload('1.jpg', 'image/jpg')
-    @bulletin.image.attach(@image)
   end
 
   test 'should get root' do
@@ -23,21 +27,21 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test 'should get new' do
-    sign_in @author
+  test 'should get new for auth user' do
+    sign_in @first_author
 
     get new_bulletin_path
     assert_response :success
   end
 
-  test 'should not get new for not signed users' do
+  test 'should not get new for not auth users' do
     get new_bulletin_url
 
     assert_redirected_to root_url
   end
 
   test 'should create new bulletins' do
-    sign_in @author
+    sign_in @first_author
 
     post bulletins_url, params: { bulletin: @attr }
 
@@ -46,32 +50,59 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to bulletin_url(bulletin)
   end
 
-  test 'should update bulletin' do
-    sign_in @author
+  test 'should not create new bulletin for logout user' do
+    post bulletins_url, params: { bulletin: @attr }
 
-    patch bulletin_url(@bulletin), params: { bulletin: @attrs }
-
-    @bulletin.reload
-
-    assert { @bulletin.title == @attrs[:title] }
-    assert { @bulletin.description == @attrs[:description] }
-    assert_redirected_to profile_url
+    bulletin = Bulletin.find_by(@attr.except(:image))
+    assert { bulletin.nil? }
+    assert_redirected_to root_path
   end
 
-  # test 'should not create new bulletin for logout user' do
-  #   post bulletins_url, params: { bulletin: @attr }
+  test 'should update bulletin' do
+    sign_in @first_author
 
-  #   bulletin = Bulletin.find_by(@attr.except(:image))
-  #   assert { bulletin.nil? }
-  #   assert_redirected_to root_path
-  # end
+    patch bulletin_path(@draft), params: { bulletin: @attr }
+
+    @draft.reload
+
+    assert { @draft.title == @attr[:title] }
+    assert { @draft.description == @attr[:description] }
+    assert_redirected_to bulletin_path(@draft)
+  end
+
+  test 'should update bulletin as user not author' do
+    sign_in @second_author
+
+    patch bulletin_path(@draft), params: { bulletin: @attr }
+    assert_redirected_to root_path
+  end
 
   test 'should archive bulletins' do
-    sign_in @user
+    sign_in @first_author
 
-    patch archive_bulletin_path(@bulletin_draft)
+    @draft.image.attach(@image)
+    patch archive_bulletin_path(@draft)
 
-    @bulletin_draft.reload
-    assert @bulletin_draft.archived?
+    assert @draft.reload.archived?
+    assert_redirected_to profile_index_path
+  end
+
+  test 'should archive bulletins for admin user' do
+    sign_in @admin
+
+    @draft.image.attach(@image)
+    patch archive_bulletin_path(@draft)
+
+    assert @draft.reload.archived?
+    assert_redirected_to profile_index_path
+  end
+
+  test 'should not archive bulletins for not authorized user' do
+    sign_in @second_author
+
+    patch archive_bulletin_path(@draft)
+
+    assert { @draft == @draft.reload }
+    assert_redirected_to root_path
   end
 end

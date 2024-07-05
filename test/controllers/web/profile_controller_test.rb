@@ -9,7 +9,7 @@ class Web::ProfileControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get index' do
-    sign_in users(:one)
+    sign_in users(:first_author)
     get profile_index_path
     assert_response :success
   end

@@ -3,7 +3,8 @@
 module Web
   module Admin
     class BulletinsController < ApplicationController
-      include BulletinConcern
+      include BulletinsConcern
+
       before_action :set_bulletin,
                     only: %i[publish archive reject]
 
