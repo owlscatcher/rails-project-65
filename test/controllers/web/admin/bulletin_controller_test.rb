@@ -24,7 +24,7 @@ module Web
 
       test 'should publish bulletin' do
         patch publish_admin_bulletin_url(@under_moderate_bulletin)
-        assert_redirected_to admin_path
+        assert_redirected_to admin_root_path
         assert { @under_moderate_bulletin.reload.state == 'published' }
       end
 
@@ -35,13 +35,13 @@ module Web
 
       test 'should archive bulletin' do
         patch archive_admin_bulletin_url(@under_moderate_bulletin)
-        assert_redirected_to admin_path
+        assert_redirected_to admin_root_path
         assert { @archived_bulletin.reload.state == 'archived' }
       end
 
       test 'should reject bulletin' do
         patch reject_admin_bulletin_url(@under_moderate_bulletin)
-        assert_redirected_to admin_path
+        assert_redirected_to admin_root_path
         assert { @under_moderate_bulletin.reload.state == 'rejected' }
       end
     end

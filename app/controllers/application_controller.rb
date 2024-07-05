@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :signed_in?, :current_user
-
   include AuthConcern
   include Pagy::Backend
   include Pundit::Authorization
+
+  helper_method :signed_in?, :current_user
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   rescue_from NotAuthenticatedError, with: :user_not_authenticated

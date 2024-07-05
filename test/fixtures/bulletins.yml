@@ -1,22 +1,24 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 under_moderation:
-  title: MyString1
-  description: MyStringMyStringMyStringMyString
-  user: one
+  title: Under moderation bulletin
+  description: This is over 10 symbols text for under moderation bulletin
+  user: first_author
   category: one
   state: under_moderation
 
 archived:
-  title: MyString1
-  description: MyStringMyStringMyStringMyString
-  user: one
+  title: Archived bulletin
+  description: This is over 10 symbols text for archived bulletin
+  user: second_author
   category: one
   state: archived
 
 draft:
-  title: MyString2
-  description: MyStringMyStringMyStringMyString
-  user: one
-  category: one
+  title: Draft bulletin
+  description: This is over 10 symbols text for draft bulletin
+  user: admin
+  category: two
   state: draft
+
+

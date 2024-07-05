@@ -8,7 +8,7 @@ module BulletinConcern
 
     before_action :authenticate_user!, except: %i[index show]
     before_action :set_bulletin,
-                  only: %i[show edit update destroy archive to_moderate]
+                  only: %i[show edit update archive to_moderate]
   end
 
   def index
@@ -18,14 +18,22 @@ module BulletinConcern
     @pagy, @bulletins = pagy(@q.result.order(updated_at: :desc), items:)
   end
 
-  def show; end
+  def show
+    authorize @bulletin
+  end
 
   def new
     @bulletin = Bulletin.new
+    authorize @bulletin
+  end
+
+  def edit
+    authorize @bulletin
   end
 
   def create
     @bulletin = current_user.bulletins.build(bulletin_params)
+    authorize @bulletin
 
     if @bulletin.save
       redirect_to @bulletin, notice: t('.success')
@@ -35,9 +43,9 @@ module BulletinConcern
     end
   end
 
-  def edit; end
-
   def update
+    authorize @bulletin
+
     if @bulletin.update(bulletin_params)
       redirect_to @bulletin, notice: t('.success')
     else
@@ -46,26 +54,22 @@ module BulletinConcern
     end
   end
 
-  def destroy
-    if @bulletin.destroy
-      redirect_to bulletins_path, notice: t('.success')
-    else
-      redirect_to @bulletin, alert: t('.fail')
-    end
-  end
-
   def archive
+    authorize @bulletin
+
     return unless @bulletin.may_archive?
 
     @bulletin.archive!
-    redirect_to profile_path, notice: t('.success')
+    redirect_to profile_index_path, notice: t('.success')
   end
 
   def to_moderate
+    authorize @bulletin
+
     return unless @bulletin.may_to_moderate?
 
     @bulletin.to_moderate!
-    redirect_to profile_path, notice: t('.success')
+    redirect_to profile_index_path, notice: t('.success')
   end
 
   private

@@ -1,51 +1,41 @@
 # frozen_string_literal: true
 
 class BulletinPolicy < ApplicationPolicy
-  def index?
-    true
-  end
-
   def show?
-    true
-  end
-
-  def create?
-    user
+    record.published? || author? || admin?
   end
 
   def new?
     create?
   end
 
-  def update?
-    user == record.user
+  def create?
+    user
   end
 
   def edit?
     update?
   end
 
-  def destroy?
-    update?
-  end
-
-  def archive?
-    update? || user.admin?
+  def update?
+    author? || admin?
   end
 
   def to_moderate?
-    update?
+    archive?
   end
 
-  def reject?
-    user.admin?
+  def archive?
+    author? || admin?
   end
 
-  def publish?
-    user.admin?
+  private
+
+  def author?
+    user && record.user == user
   end
 
-  def index_under_moderation?
-    user.admin?
+  def admin?
+    user&.admin?
   end
 end
