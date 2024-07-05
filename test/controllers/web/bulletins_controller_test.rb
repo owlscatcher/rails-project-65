@@ -101,7 +101,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch archive_bulletin_path(@draft)
 
     assert @draft.reload.archived?
-    assert_redirected_to profile_index_path
+    assert_redirected_to profile_path
   end
 
   test 'should archive bulletins for admin user' do
@@ -110,7 +110,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch archive_bulletin_path(@under_moderation)
 
     assert @under_moderation.reload.archived?
-    assert_redirected_to profile_index_path
+    assert_redirected_to profile_path
   end
 
   test 'should moderate bulletins for admin user' do
@@ -119,7 +119,7 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     patch to_moderate_bulletin_path(@draft)
 
     assert @draft.reload.under_moderation?
-    assert_redirected_to profile_index_path
+    assert_redirected_to profile_path
   end
 
   test 'should not archive bulletins for not authorized user' do

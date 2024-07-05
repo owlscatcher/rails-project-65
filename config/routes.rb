@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete 'auth/logout', to: 'auth#logout'
 
-    resources :profile, only: :index
+    get 'profile', to: 'profile#index'
 
     resources :bulletins, except: %i[destroy] do
       member do

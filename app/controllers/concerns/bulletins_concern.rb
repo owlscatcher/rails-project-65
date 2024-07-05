@@ -60,7 +60,7 @@ module BulletinsConcern
     authorize @bulletin
 
     @bulletin.archive!
-    redirect_to profile_index_path, notice: t('.success')
+    redirect_to profile_path, notice: t('.success')
   end
 
   def to_moderate
@@ -69,7 +69,7 @@ module BulletinsConcern
     authorize @bulletin
 
     @bulletin.to_moderate!
-    redirect_to profile_index_path, notice: t('.success')
+    redirect_to profile_path, notice: t('.success')
   end
 
   private
