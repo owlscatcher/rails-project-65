@@ -4,8 +4,6 @@ require 'test_helper'
 
 class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @image = fixture_file_upload('1.jpg', 'image/jpg')
-
     @draft = bulletins(:draft)
     @under_moderation = bulletins(:under_moderation)
     @archive = bulletins(:archived)
@@ -70,6 +68,26 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to bulletin_path(@draft)
   end
 
+  test 'should update bulletin with params' do
+    sign_in @first_author
+
+    patch bulletin_path(@draft), params: {
+      bulletin: {
+        title: 'New Title',
+        image: {
+          content_type: 'image/png',
+          original_filename: 'test.png',
+          tempfile: "#\u003cFile:0x00007fcae65c0720\u003e"
+        }
+      }
+    }
+
+    @draft.reload
+
+    assert { @draft.title == 'New Title' }
+    assert_redirected_to bulletin_path(@draft)
+  end
+
   test 'should update bulletin as user not author' do
     sign_in @second_author
 
@@ -80,7 +98,6 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should archive bulletins' do
     sign_in @first_author
 
-    @draft.image.attach(@image)
     patch archive_bulletin_path(@draft)
 
     assert @draft.reload.archived?
@@ -90,10 +107,18 @@ class Web::BulletinsControllerTest < ActionDispatch::IntegrationTest
   test 'should archive bulletins for admin user' do
     sign_in @admin
 
-    @draft.image.attach(@image)
-    patch archive_bulletin_path(@draft)
+    patch archive_bulletin_path(@under_moderation)
 
-    assert @draft.reload.archived?
+    assert @under_moderation.reload.archived?
+    assert_redirected_to profile_index_path
+  end
+
+  test 'should moderate bulletins for admin user' do
+    sign_in @admin
+
+    patch to_moderate_bulletin_path(@draft)
+
+    assert @draft.reload.under_moderation?
     assert_redirected_to profile_index_path
   end
 

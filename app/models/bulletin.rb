@@ -8,13 +8,16 @@ class Bulletin < ApplicationRecord
   end
 
   belongs_to :user, counter_cache: :bulletins_count
-  belongs_to :category, optional: false
+  belongs_to :category
 
-  validates :title, presence: true, length: { minimum: 3, maximum: 50 }
-  validates :description, presence: true, length: { minimum: 10, maximum: 1000 }
-  validates :image, attached: true,
-                    content_type: %i[png jpg jpeg],
-                    size: { less_than: 5.megabytes }
+  validates :title, presence: true, length: { maximum: 50 }
+  validates :description, presence: true, length: { maximum: 1000 }
+  validates :image,
+            attached: true,
+            content_type: {
+              in: ['image/jpeg', 'image/jpg', 'image/png'],
+              size: { less_than: 5.megabytes }
+            }
 
   scope :latest_published, -> { where(state: :published).order(created_at: :desc) }
 

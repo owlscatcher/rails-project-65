@@ -11,8 +11,8 @@ ru:
     error_notification:
       default_message: "Пожалуйста, ознакомьтесь с приведенными ниже проблемами:"
     hints:
-      title_size: "От 3 до 50 символов"
-      description_size: "От 10 до 1000 символов"
+      title_size: "Не более 50 символов"
+      description_size: "Не более 1000 символов"
       image_size: "Форматы: .png .jpg .jpeg; до 5 Мегабайт"
     # Examples
     # labels:

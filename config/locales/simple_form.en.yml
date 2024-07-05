@@ -11,11 +11,8 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     hints:
-      title_size: "5-255 symbols"
-      body_size: "200 to 4000 characters"
-    hints:
-      title_size: "3 to 50 symbols"
-      description_size: "10 to 1000 characters"
+      title_size: "No more than 50 symbols"
+      description_size: "No more than 1000 characters"
       image_size: "Formats: .png .jpg .jpeg; to 5 Mb"
     # Examples
     # labels:

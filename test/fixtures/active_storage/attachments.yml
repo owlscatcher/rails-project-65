@@ -1,0 +1,14 @@
+bulletin_draft_attachment:
+  name: image
+  record: draft (Bulletin)
+  blob: bulletin_draft_attachment
+
+bulletin_archived_attachment:
+  name: image
+  record: archived (Bulletin)
+  blob: bulletin_archived_attachment
+
+bulletin_under_moderation_attachment:
+  name: image
+  record: under_moderation (Bulletin)
+  blob: bulletin_under_moderation_attachment

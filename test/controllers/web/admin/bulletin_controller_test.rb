@@ -10,11 +10,6 @@ module Web
         @under_moderate_bulletin = bulletins(:under_moderation)
         @archived_bulletin = bulletins(:archived)
         sign_in @admin
-
-        @image = fixture_file_upload('1.jpg', 'image/jpg')
-
-        @under_moderate_bulletin.image.attach(@image)
-        @archived_bulletin.image.attach(@image)
       end
 
       test 'should get index' do
