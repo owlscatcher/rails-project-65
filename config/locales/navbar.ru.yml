@@ -6,3 +6,4 @@ ru:
     admin_panel: Панель администратора
     logout: Выйти
     login: Войти с GitHub
+    change_access: Изменить привелегии

@@ -1,0 +1,6 @@
+en:
+  web:
+    demo:
+      change_access:
+        upgrade: Privileges upgraded, you are now an administrator
+        downgrade: Privileges upgraded, you are now a simple user

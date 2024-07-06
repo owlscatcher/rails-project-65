@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     get 'profile', to: 'profile#index'
 
+    patch 'change_access', to: 'demo#change_access'
+
     resources :bulletins, except: %i[destroy] do
       member do
         patch :archive, :to_moderate

@@ -21,6 +21,9 @@ html
             = form_with url: auth_request_path(:github), data: { turbo: 'false' } do |f|
               = f.button class: 'nav-link link-dark' do
                 i.bi.bi-github
+        - if signed_in?
+          = link_to t('navbar.change_access'), change_access_path,
+          { class: 'btn btn-outline-success', data: { turbo_method: :patch } }
         - if current_user&.admin?
           = link_to t('navbar.admin_panel'), admin_root_path, { class: 'nav-link link-dark' }
         - if signed_in?

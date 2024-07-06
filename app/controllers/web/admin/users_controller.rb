@@ -6,7 +6,7 @@ module Web
       before_action :set_user, only: %i[show edit update destroy]
 
       def index
-        @pagy, @users = pagy(User.all)
+        @pagy, @users = pagy(User.order(:id))
       end
 
       def show; end
