@@ -1,11 +1,9 @@
 [![CI Status](https://github.com/owlscatcher/rails-project-65/actions/workflows/main.yml/badge.svg)](https://github.com/owlscatcher/rails-project-65/actions)
 [![Actions Status](https://github.com/owlscatcher/rails-project-65/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/owlscatcher/rails-project-65/actions)
 
-# Collective Blog
+# Bulletin board
 
-This project is a ... __TODO__
-
-Project published on render: __TODO__
+Project published on render: https://bb.owlpaw.com/
 
 ## Local installation
 
