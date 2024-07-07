@@ -19,7 +19,7 @@ without-production:
 	bundle config set --local without 'production'
 
 setup-without-production: without-production setup
-	cp -n .env.github .env || true
+	cat .env.github .env.sentry | sort > .env || true
 
 cleanup:
 	bin/rails db:drop db:create db:migrate
