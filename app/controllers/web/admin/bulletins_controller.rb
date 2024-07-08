@@ -3,35 +3,45 @@
 module Web
   module Admin
     class BulletinsController < ApplicationController
-      include BulletinsConcern
-
       before_action :set_bulletin,
                     only: %i[publish archive reject]
 
       def index
         @q = Bulletin.ransack(params[:q])
-        @pagy, @bulletins = pagy(@q.result.order(updated_at: :desc))
+        @bulletins = @q.result.order(updated_at: :desc).page(params[:page])
       end
 
       def archive
-        return unless @bulletin.may_archive?
-
-        @bulletin.archive!
-        redirect_to admin_root_path, notice: t('.success')
+        if @bulletin.may_archive?
+          @bulletin.archive!
+          redirect_to admin_root_path, notice: t('.success')
+        else
+          redirect_to admin_root_path, alert: t('.fail')
+        end
       end
 
       def publish
-        return unless @bulletin.may_publish?
-
-        @bulletin.publish!
-        redirect_to admin_root_path, notice: t('.success')
+        if @bulletin.may_publish?
+          @bulletin.publish!
+          redirect_to admin_root_path, notice: t('.success')
+        else
+          redirect_to admin_root_path, alert: t('.fail')
+        end
       end
 
       def reject
-        return unless @bulletin.may_reject?
+        if @bulletin.may_reject?
+          @bulletin.reject!
+          redirect_to admin_root_path, notice: t('.success')
+        else
+          redirect_to admin_root_path, alert: t('.fail')
+        end
+      end
 
-        @bulletin.reject!
-        redirect_to admin_root_path, notice: t('.success')
+      private
+
+      def set_bulletin
+        @bulletin = Bulletin.find(params[:id])
       end
     end
   end

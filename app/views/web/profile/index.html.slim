@@ -5,5 +5,4 @@
       hr
     = render 'web/shared/bulletins/search_form', url: profile_path
     = render 'bulletins_table', bulletins: @bulletins
-    .div#pagination-section
-      .d-flex.justify-content-center == pagy_bootstrap_nav(@pagy)
+    = render 'web/shared/pagination', pagy_object: @bulletins

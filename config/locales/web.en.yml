@@ -13,8 +13,10 @@ en:
         fail: Bulletin was not updated
       to_moderate:
         success: Bulletin was sent to moderation
+        fail: Bulletin was not sent to moderation
       archive:
         success: Bulletin was sent to archive
+        fail: Bulletin was not sent to archive
       index:
         header: Bulletins
       edit:

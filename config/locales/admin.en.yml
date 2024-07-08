@@ -29,10 +29,13 @@ en:
             confirm: Confirm publishing
         archive:
           success: The bulletin was successfully archived
+          fail: Failed to archive the bulletin. Check the entered data
         reject:
           success: The bulletin was successfully returned
+          fail: Failed to return the bulletin. Check the entered data
         publish:
           success: The bulletin was successfully published
+          fail: Failed to publish the bulletin. Check the entered data
         index_under_moderation:
           header: Bulletins under moderation
         index:

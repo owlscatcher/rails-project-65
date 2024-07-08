@@ -6,3 +6,4 @@
       h2.mb-4 = t('.header')
       = link_to t('web.admin.actions.new'), new_admin_category_path, class: 'btn btn-sm btn-outline-primary mb-2'
       = render 'categories_table', categories: @categories
+      = render 'web/shared/pagination', pagy_object: @categories

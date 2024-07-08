@@ -39,3 +39,4 @@ en:
         too_long: too long (cannot be longer than %{count} character)
         confirmation: doesn't match %{attribute}
         record_invalid: doesn't create a record
+        taken: has already been taken

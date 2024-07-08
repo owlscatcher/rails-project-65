@@ -1,4 +1,16 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# == Schema Information
+#
+# Table name: bulletins
+#
+#  id          :integer          not null, primary key
+#  title       :string
+#  description :string
+#  user_id     :integer          not null
+#  category_id :integer          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#  state       :string           default("draft"), not null
+#
 
 draft:
   title: Draft bulletin

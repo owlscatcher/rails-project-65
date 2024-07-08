@@ -6,7 +6,7 @@ module Web
       authenticate_user!
 
       @q = current_user.bulletins.ransack(params[:q])
-      @pagy, @bulletins = pagy(@q.result.order(updated_at: :desc))
+      @bulletins = @q.result.order(updated_at: :desc).page(params[:page])
     end
   end
 end

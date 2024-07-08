@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'annotate'
   gem 'web-console'
 end
 
@@ -48,14 +49,15 @@ end
 
 gem 'aasm'
 gem 'active_storage_validations'
+gem 'bootstrap5-kaminari-views'
 gem 'faker', '~> 3.3', '>= 3.3.1'
 gem 'file_validators'
 gem 'image_processing'
+gem 'kaminari'
 gem 'minitest-power_assert', '~> 0.3.1'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
-gem 'pagy', '~> 8.4'
 gem 'pundit'
 gem 'ransack'
 gem 'rubocop-performance', '~> 1.21'

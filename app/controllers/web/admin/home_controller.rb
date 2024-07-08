@@ -4,7 +4,7 @@ module Web
   module Admin
     class HomeController < ApplicationController
       def index
-        @pagy, @bulletins = pagy(Bulletin.under_moderation.order(updated_at: :desc))
+        @bulletins = Bulletin.under_moderation.order(updated_at: :desc).page(params[:page])
       end
     end
   end

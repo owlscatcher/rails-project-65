@@ -2,7 +2,6 @@
 
 class ApplicationController < ActionController::Base
   include AuthConcern
-  include Pagy::Backend
   include Pundit::Authorization
 
   helper_method :signed_in?, :current_user
