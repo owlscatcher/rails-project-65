@@ -19,3 +19,18 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 }
+
+.x-pinned-td {
+  position: sticky;
+  right:  0;
+  background: white;
+  z-index:  1;
+}
+
+.x-pinned-th {
+  position: sticky;
+  right: 0;
+  background: white;
+  z-index:  1;
+  width: 10%;
+}

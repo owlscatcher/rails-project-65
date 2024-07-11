@@ -2,7 +2,7 @@ tr
   td = bulletin.title
   td = localized_bulletin_state(bulletin.state)
   td = time_ago_in_words bulletin.created_at
-  td(style='position: sticky; right:  0; background: white; z-index:  1;')
+  td.x-pinned-td
     .d-flex.justify-content-start.align-items-start
       - if render_for == 'under_moderation'
         div(title="#{t('web.admin.actions.publish')}")

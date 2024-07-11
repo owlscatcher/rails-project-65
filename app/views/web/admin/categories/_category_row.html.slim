@@ -1,8 +1,8 @@
 tr
   td = category.id
   td = category.name
-  td(style='position: sticky; right:  0; background: white; z-index:  1;')
-    .d-flex.justify-content-end.align-items-end
+  td.x-pinned-td
+    .d-flex.justify-content-start.align-items-end
       div(title="#{t('web.admin.actions.edit')}")
         = link_to edit_admin_category_path(category), class: 'btn btn-sm me-2' do
           i.bi.bi-pencil

@@ -5,7 +5,7 @@ section#categories-table
         tr
           th = t('activerecord.attributes.category.id')
           th = t('activerecord.attributes.category.name')
-          th.text-end(style="position: sticky; right:  0; background: white; z-index:  1; width: 10%")
+          th.x-pinned-th
             = t('admin.table_headers.actions')
       tbody
         - @categories.each do |category|

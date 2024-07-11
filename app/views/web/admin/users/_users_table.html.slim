@@ -6,7 +6,7 @@ table.table
       th = t('activerecord.attributes.user.email')
       th = t('activerecord.attributes.user.bulletins')
       th = t('activerecord.attributes.user.admin')
-      th.text-end(style="position: sticky; right:  0; background: white; z-index:  1; width: 10%")
+      th.x-pinned-th
         = t('admin.table_headers.actions')
   tbody
     - @users.each do |user|
